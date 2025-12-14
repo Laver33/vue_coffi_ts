@@ -20,7 +20,7 @@
     <p>Great ideas start with great coffee, Lets help you achieve that</p>
     <h3>Get started today.</h3>
 
-    <button>Join Us</button>
+    <button class="cust-but">Join Us</button>
     </div>
 </template>
 
@@ -160,14 +160,6 @@ p {
 
 button {
     margin-top: 30px;
-    padding: 12px 30px;
-    background-color: rgba(249, 192, 106, 1);
-    color: black;
-    border: none;
-    border-radius: 24px;
-    font-family: "Playfair Display", serif;
-    font-size: 16px;
-    cursor: pointer;
     transition: background-color 0.3s;
 }
 

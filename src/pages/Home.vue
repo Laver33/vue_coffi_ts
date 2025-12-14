@@ -10,6 +10,7 @@
     <Discover />
     <BestCoffi />
     <Different />
+    
 
 </template>
 

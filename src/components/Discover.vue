@@ -10,7 +10,7 @@
             boost your productivity and helps build your mood. Having a cup of coffee is good, but having 
             a cup of real coffee is greater. There is no doubt that you will enjoy this coffee more than 
             others you have ever tasted.</p>
-        <button class="btn">Learn More</button>     
+        <button class="cust-but">Learn More</button>     
     </div>
 
     <div class="image-content">
@@ -32,7 +32,7 @@
         display: flex;
     }
 
-    .hero-content .btn{
+    .hero-content button{
         border: none;
         width: 134px;
         height: 48px;

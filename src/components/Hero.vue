@@ -9,7 +9,7 @@
         best flavours coffee you will ever have. We provide the best
         for our customers.</p>
 
-        <button class="btn">Order Now</button>
+        <button class="cust-but">Order Now</button>
       </div>
     </div>
   </section>
@@ -38,17 +38,8 @@
         width: 40%;
     }
 
-    .hero-content .btn{
-        border: none;
-        width: 134px;
-        height: 48px;
+    .hero-content button {
         margin-top: 30px;
-        font-size: 16px;
-        border-radius: 14px;
-        padding: 10px;
-        background-color: rgba(249, 192, 106, 1);
-        font-family: "Playfair Display", serif;
-        font-weight: bold;
 
         animation-name: buttonUpd;
         animation-duration: 1.5s;

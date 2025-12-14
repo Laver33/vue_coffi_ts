@@ -23,6 +23,20 @@
   margin: 0px;
 }
 
+/* Кнопки */
+
+.cust-but {
+  border: none;
+  width: 134px;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 14px;
+  padding: 10px;
+  background-color: rgba(249, 192, 106, 1);
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
 .back-wrap {
   background-image: url('./assets/coffee_image.png');
   min-height: 700px;

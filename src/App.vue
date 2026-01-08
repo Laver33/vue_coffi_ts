@@ -1,29 +1,43 @@
 <script setup lang="ts">
-  import Header from './components/Header.vue';
-  import Hero from './components/Hero.vue';
+import Header from './components/Header.vue';
+import { onMounted } from 'vue';
 
-
+onMounted(() => {
+  document.body.style.fontFamily = '"Playfair Display", serif';
+});
 </script>
 
 <template>
-  <div class="back-wrap">
-    <div class="back-wrap-dop">
-      <Header />
-      <Hero />
-    </div>
+  <div class="app-container">
+    <Header />
+    <main class="main-content">
+      <router-view />
+    </main>
   </div>
-
-  <router-view></router-view>
-
-
 </template>
 
 <style>
 * {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Кнопки */
+body {
+  font-family: "Playfair Display", serif;
+  background-color: #fefefe;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 80px; 
+}
 
 .cust-but {
   border: none;
@@ -35,18 +49,12 @@
   background-color: rgba(249, 192, 106, 1);
   font-family: "Playfair Display", serif;
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.back-wrap {
-  background-image: url('./assets/coffee_image.png');
-  min-height: 700px;
-  width: 100%;
-  background-size: 100% 100%;
-  background-position: center;
-
-  box-shadow: 0px 3px 3px black;
-}
-.back-wrap-dop{
-  background-color: rgba(0, 0, 0, 0.42);
+.cust-but:hover {
+  background-color: rgb(239, 176, 80);
+  transform: translateY(-2px);
 }
 </style>

@@ -91,10 +91,10 @@
       </div>
     </div>
   </div>
-</template>
+</template> 
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 
 interface User {
   name: string;
@@ -114,43 +114,64 @@ interface Preferences {
   milk: string;
 }
 
-const user = reactive<User>({
+// Загрузка из localStorage 
+const loadFromStorage = <T>(key: string, defaultValue: T): T => {
+  const saved = localStorage.getItem(key);
+  return saved ? JSON.parse(saved) : defaultValue;
+};
+
+const user = reactive<User>(loadFromStorage('userSettings', {
   name: 'John Smith',
   email: 'john.smith@email.com',
   phone: '+7 (999) 123-45-67'
-});
+}));
 
-const notifications = reactive<Notifications>({
+const notifications = reactive<Notifications>(loadFromStorage('notificationSettings', {
   email: true,
   sms: false,
   promotions: true
-});
+}));
 
-const preferences = reactive<Preferences>({
+const preferences = reactive<Preferences>(loadFromStorage('preferenceSettings', {
   favoriteDrink: 'cappuccino',
   sugar: 1,
   milk: 'regular'
-});
-
-// Сохраняем исходные значения для сброса
-const originalUser = { ...user };
-const originalNotifications = { ...notifications };
-const originalPreferences = { ...preferences };
+}));
 
 function saveSettings() {
-  // В реальном приложении здесь был бы запрос к API
-  alert('Настройки сохранены!');
+  // Сохраняем 
+  localStorage.setItem('userSettings', JSON.stringify(user));
+  localStorage.setItem('notificationSettings', JSON.stringify(notifications));
+  localStorage.setItem('preferenceSettings', JSON.stringify(preferences));
   
-  // Обновляем исходные значения
-  Object.assign(originalUser, user);
-  Object.assign(originalNotifications, notifications);
-  Object.assign(originalPreferences, preferences);
+  alert('Настройки сохранены!');
 }
 
 function resetSettings() {
-  Object.assign(user, originalUser);
-  Object.assign(notifications, originalNotifications);
-  Object.assign(preferences, originalPreferences);
+  Object.assign(user, {
+    name: 'Stock',
+    email: 'Stock@email.com',
+    phone: '+375'
+  });
+  
+  Object.assign(notifications, {
+    email: true,
+    sms: false,
+    promotions: true
+  });
+  
+  Object.assign(preferences, {
+    favoriteDrink: 'cappuccino',
+    sugar: 1,
+    milk: 'regular'
+  });
+  
+  // Удаляем из localStorage
+  localStorage.removeItem('userSettings');
+  localStorage.removeItem('notificationSettings');
+  localStorage.removeItem('preferenceSettings');
+  
+  alert('Настройки сброшены!');
 }
 </script>
 

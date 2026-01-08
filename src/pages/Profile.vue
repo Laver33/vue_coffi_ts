@@ -12,9 +12,9 @@
         </div>
       </div>
       <div class="profile-info">
-        <h1>John Smith</h1>
-        <p class="email">john.smith@email.com</p>
-        <p class="member-since">Участник с января 2024</p>
+        <h1>Pavel</h1>
+        <p class="email">Pavel@email.com</p>
+        <p class="member-since">Участник с ....</p>
       </div>
       <button class="edit-btn">Редактировать</button>
     </div>
@@ -23,7 +23,7 @@
       <div class="stat-card">
         <div class="stat-icon">☕</div>
         <div class="stat-info">
-          <h3>48</h3>
+          <h3>2</h3>
           <p>Чашек выпито</p>
         </div>
       </div>
